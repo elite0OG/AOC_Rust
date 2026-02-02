@@ -1,30 +1,43 @@
-Advent of Code 2025 Solutions – Rust 🦀
+# 🎄 Advent of Code 2025 – Rust 🦀
 
-Advent of Code is an annual programming challenge held in December, featuring 12 days of puzzles that test problem-solving, algorithms, and optimization skills.
-This repository contains my personal solutions for AOC 2025, written in Rust.
+**Advent of Code** is an annual programming challenge held every December, featuring daily puzzles that test problem-solving skills, algorithms, and optimization techniques.
 
-📌 Progress Tracker
+This repository contains my **personal solutions for Advent of Code 2025**, all written in **Rust** 🦀.
 
-[x] Day 01 – ✅ Completed
+---
 
-[x] Day 02 – ✅ Completed
+## 📌 Progress Tracker
 
-[ ] Day 03 – 🚧 Not Done
+- [x] **Day 01** – ✅ Completed  
+- [x] **Day 02** – ✅ Completed  
+- [ ] **Day 03** – 🚧 Not Done  
+- [ ] **Day 04** – 🚧 Not Done  
+- [ ] **Day 05** – 🚧 Not Done  
+- [ ] **Day 06** – 🚧 Not Done  
+- [ ] **Day 07** – 🚧 Not Done  
+- [ ] **Day 08** – 🚧 Not Done  
+- [ ] **Day 09** – 🚧 Not Done  
+- [ ] **Day 10** – 🚧 Not Done  
+- [ ] **Day 11** – 🚧 Not Done  
+- [ ] **Day 12** – 🚧 Not Done  
 
-[ ] Day 04 – 🚧 Not Done
+---
 
-[ ] Day 05 – 🚧 Not Done
+## ⚠️ Disclaimer
 
-[ ] Day 06 – 🚧 Not Done
+Some puzzle solutions may be **slow or unoptimized**.  
+This is intentional in some cases, as the focus is on **learning, experimentation, and problem-solving**, rather than perfect performance.
 
-[ ] Day 07 – 🚧 Not Done
+I may revisit and optimize solutions later once better approaches are discovered.
 
-[ ] Day 08 – 🚧 Not Done
+---
 
-[ ] Day 09 – 🚧 Not Done
+## ⭐ Notes
 
-[ ] Day 10 – 🚧 Not Done
+- Solutions are written for learning and practice.
+- Code quality and performance may vary per day.
+- Feedback and suggestions are always welcome!
 
-[ ] Day 11 – 🚧 Not Done
+---
 
-[ ] Day 12 – 🚧 Not Done
+Happy Coding & Merry AoC 🎅✨
