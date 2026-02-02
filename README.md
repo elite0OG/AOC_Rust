@@ -5,6 +5,7 @@ Advent of Code is an annual programming challenge held in December, featuring 12
 This repository contains my personal solutions for AOC 2025, written in Rust.
 
 📌 Progress Tracker
+
 [x] Day 01 – ✅ Completed
 
 [x] Day 02 – ✅ Completed
