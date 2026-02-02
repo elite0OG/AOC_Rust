@@ -1,6 +1,5 @@
 Advent of Code 2025 Solutions – Rust 🦀
- 
-📖 About
+
 Advent of Code is an annual programming challenge held in December, featuring 12 days of puzzles that test problem-solving, algorithms, and optimization skills.
 This repository contains my personal solutions for AOC 2025, written in Rust.
 
