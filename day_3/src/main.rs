@@ -11,21 +11,17 @@ fn main()
     day_three_part_two(&data);
 }
 //helper function
-fn get_largest(data:&Vec<i32>)->usize
-{
-    let mut current_largest = data[0];
-    let mut idx =0;
-    for i in 0..data.len()
-    {
-        if current_largest < data[i]
-        {
-            current_largest = data[i];
-            idx = i;
+fn get_largest(data: &[i32]) -> usize {
+    let mut max_idx = 0;
+    for (i, &v) in data.iter().enumerate() {
+        if v > data[max_idx] {
+            max_idx = i;
         }
     }
-    idx
+    max_idx
 }
 
+//code -> 
 fn day_three_part_one(data:&Vec<String>)
 {
     let mut voltage_added =0;
@@ -70,7 +66,29 @@ fn day_three_part_two(data:&Vec<String>)
     {
         let mut data_core: Vec<i32> = data[i].chars().filter_map(|c| 
                             c.to_digit(10)).map(|d| d as i32).collect();
+        let mut digits: [i32; 12] = [0; 12];
+        let len = digits.len();
+        let cols = data_core.len();
+        let mut k:usize =0;
+        for j in 0..len
+        {
+            let end = cols - (len - j) + 1;
+
+            let m = get_largest(&data_core[k..end]);
+              
+            let abs_idx = k + m;
+
+            digits[j] = data_core[abs_idx];
+
+            k = abs_idx + 1;
+        }
+        let mut digits_number: i64 = 0;
+        for d in digits {
+         digits_number = digits_number * 10 + d as i64;
+        }
+        //println!("{}",digits_number); //testing only
+       voltage_added += digits_number;  
     }
-    println!("VOLTAGE:part-2: {}", voltage_added);//TLDR 
+    println!("VOLTAGE:part-2: {}", voltage_added);//175053592950232
 
 }
