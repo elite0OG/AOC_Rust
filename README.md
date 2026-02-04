@@ -11,7 +11,7 @@ This repository contains my **personal solutions for Advent of Code 2025**, all 
 - [x] **Day 01** – ✅ Completed  
 - [x] **Day 02** – ✅ Completed  
 - [x] **Day 03** – ✅ Completed
-- [ ] **Day 04** – 🚧 Not Done  
+- [ ] **Day 04** – ✅ Part 1 Completed
 - [ ] **Day 05** – 🚧 Not Done  
 - [ ] **Day 06** – 🚧 Not Done  
 - [ ] **Day 07** – 🚧 Not Done  
