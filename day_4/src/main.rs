@@ -1,7 +1,8 @@
 #![allow(unused)]
 use std::fs::read_to_string;
 
-fn main() {
+fn main() 
+{
     let input: Vec<String> = read_to_string("input.txt")
         .unwrap()
         .lines()
@@ -9,7 +10,7 @@ fn main() {
         .collect();
 
     day_four_part_one(&input);
-    day_four_part_two(&input);
+    day_four_part_two( &input);
 }
 
 pub fn day_four_part_one(input:&Vec<String>)
@@ -26,85 +27,107 @@ pub fn day_four_part_one(input:&Vec<String>)
         }
     }
     let  mut girp_print = grid.clone();  //only for printing the gird without harming acctual data
-    let mut c_t = 0;
+    let mut c_t: i32 = 0;
     for (y, line) in input.iter().enumerate() 
     {
         for (x, ch) in line.chars().enumerate() 
         {
            if grid[idx(x, y)] == '@' 
            {
-                let mut count = 0;
-                // left
-                if x > 0 && grid[idx(x - 1, y)] == '@' {
-                    count += 1;
-                }
-                // right
-                if x + 1 < col_len && grid[idx(x + 1, y)] == '@' {
-                    count += 1;
-                }
-                // up
-                if y > 0 && grid[idx(x, y - 1)] == '@' {
-                    count += 1;
-                }
-                // down
-                if y + 1 < row_len && grid[idx(x, y + 1)] == '@' {
-                    count += 1;
-                }
-                // up-left
-                if x > 0 && y > 0 && grid[idx(x - 1, y - 1)] == '@' {
-                    count += 1;
-                }
-                // up-right
-                if x + 1 < col_len && y > 0 && grid[idx(x + 1, y - 1)] == '@' {
-                    count += 1;
-                }
-                // down-left
-                if x > 0 && y + 1 < row_len && grid[idx(x - 1, y + 1)] == '@' {
-                    count += 1;
-                }
-                // down-right
-                if x + 1 < col_len && y + 1 < row_len && grid[idx(x + 1, y + 1)] == '@' {
-                    count += 1;
-                }
+                    let mut count = 0;
+                    //nebours
+                    let dirs = [
+                        (-1, 0), (1, 0), (0, -1), (0, 1),
+                        (-1, -1), (1, -1), (-1, 1), (1, 1),
+                    ];
 
-                if count < 4 {
-                    girp_print[idx(x, y)] = 'x';
-                    c_t +=1;
-                }
-            }
+                    for (dx, dy) in dirs 
+                    {
+                        let nx = x as isize + dx;
+                        let ny = y as isize + dy;
+                        if nx >= 0 && nx < col_len as isize && ny >= 0 && ny < row_len as isize 
+                        {
+                            if grid[idx(nx as usize, ny as usize)] == '@' 
+                            {
+                                count += 1;
+                            }
+                        }
+                    }
 
+                    if count < 4 
+                    {
+                        girp_print[idx(x, y)] = 'x';
+                        c_t += 1;
+                    }
+                }
              
         }
         
     }
 
-    //*printing the gird
-    // {
-    //     println!("ROW: {}, COL: {}", row_len, col_len);
-    //     for (y, line) in input.iter().enumerate() {
-    //         for (x, ch) in line.chars().enumerate() {
-    //             print!("{}", girp_print[idx(x,y)]);
-             
-    //         }
-    //         println!();
-    //     }
-    // }
-    println!("{}",c_t);//1516
+    println!("c_t = {}",c_t);//1516
 
 }
 
-//TODO compelete it. 
-pub fn day_four_part_two(input:&Vec<String>)
+pub fn day_four_part_two(input: &Vec<String>) 
 {
+    let mut c_t: i32 = 0;
     let row_len = input.len();
     let col_len = input[0].len();
 
     let mut grid: Vec<char> = vec![' '; row_len * col_len];
 
     let idx = |x: usize, y: usize| y * col_len + x;
-    for (y, line) in input.iter().enumerate() {
-        for (x, ch) in line.chars().enumerate() {
+    for (y, line) in input.iter().enumerate() 
+    {
+        for (x, ch) in line.chars().enumerate() 
+        {
             grid[idx(x,y)] = ch;
         }
     }
+    let idx = |x: usize, y: usize| y * col_len + x;
+    //loop untill we can not update gird
+    loop {
+        let mut girp_print = grid.clone();
+        let mut updated = false;
+
+        for (y, line) in input.iter().enumerate() 
+        {
+            for (x, _) in line.chars().enumerate() 
+            {
+                if grid[idx(x, y)] == '@' 
+                {
+                    let mut count = 0;
+
+                    let dirs = [
+                        (-1, 0), (1, 0), (0, -1), (0, 1),
+                        (-1, -1), (1, -1), (-1, 1), (1, 1),
+                    ];
+
+                    for (dx, dy) in dirs {
+                        let nx = x as isize + dx;
+                        let ny = y as isize + dy;
+                        if nx >= 0 && nx < col_len as isize && ny >= 0 && ny < row_len as isize {
+                            if grid[idx(nx as usize, ny as usize)] == '@' {
+                                count += 1;
+                            }
+                        }
+                    }
+
+                    if count < 4 {
+                        girp_print[idx(x, y)] = 'x';
+                        unsafe { c_t += 1 };
+                        updated = true;
+                    }
+                }
+            }
+        }
+
+        if !updated {
+            break;
+        }
+        grid = girp_print;
+    }
+
+    println!("c_t = {}", c_t);//9122
 }
