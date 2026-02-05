@@ -1,0 +1,12 @@
+{
+    "configurations": [
+    {
+        "type": "lldb",
+        "request": "launch",
+        "name": "Launch",
+        "program": "${workspaceFolder}/target/debug/day_5",
+        "args": [],
+        "cwd": "${workspaceFolder}"
+    }
+    ]
+}

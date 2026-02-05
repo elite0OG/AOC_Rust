@@ -12,7 +12,7 @@ This repository contains my **personal solutions for Advent of Code 2025**, all 
 - [x] **Day 02** – ✅ Completed  
 - [x] **Day 03** – ✅ Completed
 - [x] **Day 04** – ✅ Completed
-- [ ] **Day 05** – 🚧 Not Done  
+- [X] **Day 05** – ✅ Completed  
 - [ ] **Day 06** – 🚧 Not Done  
 - [ ] **Day 07** – 🚧 Not Done  
 - [ ] **Day 08** – 🚧 Not Done  
